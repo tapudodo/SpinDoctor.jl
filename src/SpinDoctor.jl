@@ -4,7 +4,8 @@ module SpinDoctor
 using Arpack: eigs
 using DiffEqCallbacks: PresetTimeCallback
 using Expokit: expmv!
-using GLMakie
+# using GLMakie
+using CairoMakie
 using GLPK: Optimizer
 using LinearAlgebra
 using MiniQhull: delaunay

@@ -1,6 +1,6 @@
 setup = CylinderSetup(
     name = "cylinders/somecylinders",
-    ncell = 3,
+    ncell = 2,
     rmin = 2.0,
     rmax = 6.0,
     dmin = 0.2,
@@ -12,7 +12,7 @@ setup = CylinderSetup(
     in_ratio = 0.6,
     ecs_shape = "convex_hull",
     ecs_ratio = 0.5,
-    refinement = 0.5,
+    refinement = 1,
     D_in = 0.002 * I(3),
     D_out = 0.002 * I(3),
     D_ecs = 0.002 * I(3),
@@ -38,7 +38,7 @@ experiment = Experiment(
     ),
     btpde = (odesolver = QNDF(), reltol = 1e-4, abstol = 1e-6, nsave = 1),
     btpde_midpoint = (θ = 0.5, timestep = 5),
-    mf = (length_scale = 3, neig_max = 400, ninterval = 500),
+    # mf = (length_scale = 3, neig_max = 400, ninterval = 500),
     hadc = (odesolver = QNDF(), reltol = 1e-4, abstol = 1e-6),
     karger = (odesolver = MagnusGL6(), timestep = 5),
 )
