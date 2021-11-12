@@ -47,7 +47,7 @@ function solve_mf(model, matrices, lap_eig, experiment)
     signal = zeros(ComplexF64, ncompartment, namplitude, nsequence, ndirection)
     signal_allcmpts = zeros(ComplexF64, namplitude, nsequence, ndirection)
     magnetization =
-        Array{Matrix{ComplexF64},4}(undef, ncompartment, namplitude, nsequence, ndirection)
+        Array{Matrix{ComplexF64}, 4}(undef, ncompartment, namplitude, nsequence, ndirection)
     itertimes = zeros(namplitude, nsequence, ndirection)
 
     # Laplace operator in Laplace eigenfunction basis
@@ -111,7 +111,7 @@ function solve_mf(model, matrices, lap_eig, experiment)
             inds = get_inds(icmpt)
 
             # Store magnetization in compartment
-            magnetization[icmpt, iamp, iseq, idir] = mag[inds]
+            magnetization[icmpt, iamp, iseq, idir] = mag[inds,:]
 
             # Integrate magnetization over compartment
             signal[icmpt, iamp, iseq, idir] = sum(M_cmpts[icmpt] * mag[inds])
