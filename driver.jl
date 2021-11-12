@@ -26,8 +26,6 @@ qvalues, bvalues = get_values(experiment.gradient)
 ## Assemble finite element matrices
 @time matrices = assemble_matrices(model);
 
-##
-@time btpde = solve_btpde(model, matrices, experiment)
 
 ## Use manual time stepping scheme (theta rule)
 if !isnothing(experiment.btpde_midpoint)
@@ -36,7 +34,7 @@ end
 
 ## Solve BTPDE
 if !isnothing(experiment.btpde)
-    # @time btpde = solve_btpde(model, experiment)
+    @time btpde = solve_btpde(model, matrices, experiment)
 
     refinement_str = ""
     if !isnothing(setup.refinement)
